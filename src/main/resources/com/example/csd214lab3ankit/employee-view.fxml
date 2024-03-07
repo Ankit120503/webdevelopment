@@ -11,20 +11,21 @@
    <children>
       <Pane layoutX="73.0" layoutY="18.0" prefHeight="408.0" prefWidth="475.0">
          <children>
-            <TableView layoutX="118.0" layoutY="195.0" prefHeight="180.0" prefWidth="268.0">
+            <TableView layoutX="118.0" fx:id="tableView" layoutY="195.0" prefHeight="180.0" prefWidth="268.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="ID" />
-                <TableColumn prefWidth="75.0" text="Name" />
-                  <TableColumn prefWidth="75.0" text="Salary" />
+                <TableColumn fx:id="ID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="Name" prefWidth="75.0" text="Name" />
+                  <TableColumn fx:id="Salary" prefWidth="75.0" text="Salary" />
               </columns>
             </TableView>
             <TextField fx:id="eID" layoutX="112.0" layoutY="8.0" text="ID" />
             <TextField fx:id="eName" layoutX="112.0" layoutY="59.0" text="Name" />
             <TextField fx:id="eSalary" layoutX="112.0" layoutY="113.0" text="Salary" />
-            <Button layoutX="290.0" layoutY="46.0" mnemonicParsing="false" text="Update" />
-            <Button layoutX="294.0" layoutY="8.0" mnemonicParsing="false" text="Insert" />
-            <Button layoutX="291.0" layoutY="83.0" mnemonicParsing="false" text="Delete" />
-            <Button layoutX="296.0" layoutY="125.0" mnemonicParsing="false" text="Load" />
+             <Button onAction="#onHelloButtonClick" text="Click here" />
+            <Button layoutX="290.0" layoutY="46.0" mnemonicParsing="false" onAction="#Updatebutton" text="Update" />
+            <Button layoutX="294.0" layoutY="8.0" mnemonicParsing="false" onAction="#Insertbutton" text="Insert" />
+            <Button layoutX="291.0" layoutY="83.0" mnemonicParsing="false" onAction="#Deletebutton" text="Delete" />
+            <Button layoutX="296.0" layoutY="125.0" mnemonicParsing="false"  onAction="#Loadbutton" text="Load" />
             <Button layoutX="292.0" layoutY="161.0" mnemonicParsing="false" text="Button" />
          </children>
       </Pane>

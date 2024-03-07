@@ -1,6 +1,7 @@
 package com.example.csd214lab3ankit;
 
 import javafx.collections.FXCollections;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,16 +13,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.sql.*;
-public class EmployeeController extends Employee {
+public class EmployeeController implements Initializable {
 
 
-    public TableColumn ID;
-    public TableColumn Name;
-    public TableColumn Salary;
 
-    public EmployeeController(int ID, String Name, String Salary) {
 
-    }
+
         public TextField eName;
         public TextField eSalary;
         public Label welcomeText;
@@ -50,31 +47,29 @@ public class EmployeeController extends Employee {
             tableView.setItems(list);
         }
 
-        @FXML
-        protected void EmployeeController.
-
-    void java() {
-            populateTable();
-        }
+    @FXML
+    protected void onHelloButtonClick() {
+        populateTable();
+    }
 
         public void populateTable() {
 // Establish a database connection
-            String jdbcUrl = "jdbc:mysql://localhost:3306/market";
+            String jdbcUrl = "jdbc:mysql://localhost:3306/employ";
             String dbUser = "root";
             String dbPassword = "";
             try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser,
                     dbPassword)) {
 // Execute a SQL query to retrieve data from the database
-                String query = "SELECT * FROM `product`";
+                String query = "SELECT * FROM `select`";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 list.clear();
 // Populate the table with data from the database
                 while (resultSet.next()) {
-                    int ID = resultSet.getInt("id");
-                    String Name = resultSet.getString("name");
-                    String Salary = resultSet.getString("salary");
-                    boolean add = tableView.getItems().add(new EmployeeController(ID, Name, Salary));
+                    int eID = resultSet.getInt("ID");
+                    String eName = resultSet.getString("Name");
+                    String eSalary = resultSet.getString("Salary");
+                    tableView.getItems().add(new Employee(eID, eName, eSalary));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -91,13 +86,13 @@ public class EmployeeController extends Employee {
         }
 
         private void Insertbutton(String x, String y ) {
-            String jdbcUrl = "jdbc:mysql://localhost:3306/market";
+            String jdbcUrl = "jdbc:mysql://localhost:3306/employ";
             String dbUser = "root";
             String dbPassword = "";
             try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser,
                     dbPassword)) {
 // Execute a SQL query to retrieve data from the database
-                String query = "INSERT INTO `product`( `name`, `salary` ) VALUES ('" + x + "','" + y + "')";
+                String query = "INSERT INTO `select`( `Name`, `Salary` ) VALUES ('" + x + "','" + y + "')";
                 var statement = connection.createStatement();
                 statement.execute(query);
 // Populate the table with data from the database
@@ -114,13 +109,13 @@ public class EmployeeController extends Employee {
 
             String EID=eID.getText();
 
-            String jdbcUrl = "jdbc:mysql://localhost:3306/market";
+            String jdbcUrl = "jdbc:mysql://localhost:3306/employ";
             String dbUser = "root";
             String dbPassword = "";
             try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser,
                     dbPassword)) {
 // Execute a SQL query to retrieve data from the database
-                String query = "DELETE FROM `product` WHERE ID='"+EID+"'";
+                String query = "DELETE FROM `select` WHERE ID='"+EID+"'";
                 Statement statement = connection.createStatement();
                 statement.execute(query);
 
@@ -138,13 +133,13 @@ public class EmployeeController extends Employee {
             String Esalary = eSalary.getText();
 
 
-            String jdbcUrl = "jdbc:mysql://localhost:3306/market";
+            String jdbcUrl = "jdbc:mysql://localhost:3306/employ";
             String dbUser = "root";
             String dbPassword = "";
             try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser,
                     dbPassword)) {
 // Execute a SQL query to retrieve data from the database
-                String query = "UPDATE `product` SET `name`='" + Ename + "',`salary`='" + Esalary + "' WHERE id='" + Eid + "'";
+                String query = "UPDATE `select` SET `name`='" + Ename + "',`salary`='" + Esalary + "' WHERE id='" + Eid + "'";
                 Statement statement = connection.createStatement();
                 statement.execute(query);
 
@@ -156,16 +151,16 @@ public class EmployeeController extends Employee {
         }
 
         public void Loadbutton(ActionEvent actionEvent) {
-            String EID =eID.getText();
+            String EID = eID.getText();
 
-            String jdbcUrl = "jdbc:mysql://localhost:3306/market";
+            String jdbcUrl = "jdbc:mysql://localhost:3306/employ";
             String dbUser = "root";
             String dbPassword = "";
 
             try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser,
                     dbPassword)) {
 // Execute a SQL query to retrieve data from the database
-                String query = "SELECT * FROM `product` WHERE id='"+EID+"'";
+                String query = "SELECT * FROM `select` WHERE id='" + EID + "'";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
 // Populate the table with data from the database
@@ -183,14 +178,7 @@ public class EmployeeController extends Employee {
                 e.printStackTrace();
             }
 
-
-
         }
-
-        public void set_Username(String message){
-            welcomeText.setText(message);
-        }
-    }
 
 
 }

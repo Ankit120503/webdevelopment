@@ -9,10 +9,10 @@
    <children>
       <Pane layoutX="158.0" layoutY="72.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button layoutX="15.0" layoutY="12.0" mnemonicParsing="false" text="Admin" />
-            <Button layoutX="72.0" layoutY="12.0" mnemonicParsing="false" text="Employee" />
+            <Button layoutX="15.0" fx:id="Adminn" layoutY="12.0" mnemonicParsing="false" onAction="#Adminbutton" text="Admin" />
+            <Button layoutX="72.0" fx:id="Employee" layoutY="12.0" mnemonicParsing="false" onAction="#Employeebutton" text="Employee" />
             <Button layoutX="148.0" fx:id="Logout" layoutY="12.0" mnemonicParsing="false" onAction="#Logoutbutton" text="Logout" />
-            <Button layoutX="82.0" layoutY="65.0" mnemonicParsing="false" onAction="#Exitbutton" text="Exit" />
+            <Button layoutX="82.0"  layoutY="65.0" mnemonicParsing="false" onAction="#Exitbutton" text="Exit" />
          </children>
       </Pane>
    </children>
