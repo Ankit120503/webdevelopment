@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csd214lab3ankit.Dashboard">
+   <children>
+      <Pane layoutX="158.0" layoutY="72.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="15.0" layoutY="12.0" mnemonicParsing="false" text="Admin" />
+            <Button layoutX="72.0" layoutY="12.0" mnemonicParsing="false" text="Employee" />
+            <Button layoutX="148.0" fx:id="Logout" layoutY="12.0" mnemonicParsing="false" onAction="#Logoutbutton" text="Logout" />
+            <Button layoutX="82.0" layoutY="65.0" mnemonicParsing="false" onAction="#Exitbutton" text="Exit" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
